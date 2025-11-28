@@ -13,7 +13,7 @@ public class MontyHallGuessingGameExercise {
      * Runs the guessing game
      * @param args not used
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in);
         
         int[] door = {0, 0, 0};
