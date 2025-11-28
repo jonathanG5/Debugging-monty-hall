@@ -13,7 +13,7 @@ public class MontyHallGuessingGameExercise {
      * Runs the guessing game
      * @param args not used
      */
-    public static void main(String[] args)  {
+    public static void main(String[] args)  { // Frågar användaren vilken dörr de väljer, åter Monty öppna en get-dörr, Frågar om spelaren vill byta, pAvgör om spelaren vann eller ej
         Scanner scanner = new Scanner(System.in);
         
         int[] door = {0, 0, 0};
@@ -37,7 +37,7 @@ public class MontyHallGuessingGameExercise {
         scanner.close();
     }
 
-    private static int switchDoor(int playerChoice, int montysChoice) {
+    private static int switchDoor(int playerChoice, int montysChoice) { //byter spelarens val till den enda dörr som varken är spelarens nuvarande val eller Montys öppnade dörr.
         for (int i = 0; i < 3; i++) {
             if (i != playerChoice || i != montysChoice) {
                 return i;
@@ -46,13 +46,13 @@ public class MontyHallGuessingGameExercise {
         return playerChoice;
     }
 
-    private static boolean playerWantsToSwitchDoor(Scanner scan) {
+    private static boolean playerWantsToSwitchDoor(Scanner scan) {//läser spelarens svar och returnerar om spelaren vill byta dörr eller inte.
         String choice = scan.nextLine().trim();
         if (choice.equals("yes")) { return true; }
         return false;
     }
 
-    private static int montySelectsAGoat(int[] doors, int playerChoice) {
+    private static int montySelectsAGoat(int[] doors, int playerChoice) {//hittar en dörr som inte är spelarens val och som innehåller en get för Monty att öppna.
         Random random = new Random();
         int choice;
 
@@ -64,7 +64,7 @@ public class MontyHallGuessingGameExercise {
         }
     }
 
-    private static void determineWinner(int[] doors, int playerChoice) {
+    private static void determineWinner(int[] doors, int playerChoice) {//avgör om spelaren valde dörren med bilen och skriver ut vinst eller förlust.
         if(doors[playerChoice] == 1) {
             System.out.println("You won!");
         }
@@ -74,13 +74,13 @@ public class MontyHallGuessingGameExercise {
     }
 
 
-    public static void randomlyPlaceAPrize(int[] doors) {
+    public static void randomlyPlaceAPrize(int[] doors) { //Placerar bilen bakom en slumpmässig dörr. Sätter en av arrayens positioner till 1.
         Random random = new Random();
-        int randomNumber = random.nextInt(doors.length + 1);
+        int randomNumber = random.nextInt(doors.length);// det ska bara vara doors.lenght eftersom det är 3 arrayer inte 4.
         doors[randomNumber] = 1;
     }
 
-    public static void openDoor(int n, int[] doors) {
+    public static void openDoor(int n, int[] doors) {// skriver ut vilken dörr Monty öppnar och vad som finns bakom den.
         String contains = "";
         if (doors[n] == 0) { contains = "goat"; }
         else { contains = "prize"; };
