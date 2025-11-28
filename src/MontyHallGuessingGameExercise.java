@@ -19,7 +19,7 @@ public class MontyHallGuessingGameExercise {
         int[] door = {0, 0, 0};
         randomlyPlaceAPrize(door);
 
-        System.out.println("Pick a door (0, 1, or 2): ");
+        System.out.println("Pick a door (0, 1, or 2):");
         int playerChoice = scanner.nextInt();
         int montysChoice = montySelectsAGoat(door, playerChoice);
 
