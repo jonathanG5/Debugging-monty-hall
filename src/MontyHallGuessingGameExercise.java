@@ -39,7 +39,7 @@ public class MontyHallGuessingGameExercise {
 
     private static int switchDoor(int playerChoice, int montysChoice) { //byter spelarens val till den enda dörr som varken är spelarens nuvarande val eller Montys öppnade dörr.
         for (int i = 0; i < 3; i++) {
-            if (i != playerChoice || i != montysChoice) {
+            if (i != playerChoice && i != montysChoice) {
                 return i;
             }
         }
